@@ -10,6 +10,16 @@ class Rotation2D(val cos: Double, val sin: Double) {
     @Deprecated("", ReplaceWith("inverse"))
     operator fun unaryMinus(): Rotation2D = inverse
 
+    /**
+     * Defines when two Rotation2D objects are equal. Replaces == when dealing with Rotation2D objects.
+     *
+     * **Example**
+     *
+     * @sample test.ca.warp7.frc.geometry.Rotation2DTest.epsilionEqualsWorksProperly
+     *
+     * @return Boolean, True if the two objects are equal, False if otherwise.
+     *
+     */
     fun epsilonEquals(state: Rotation2D, epsilon: Double = 1E-12): Boolean =
             cos.epsilonEquals(state.cos, epsilon) && sin.epsilonEquals(state.sin, epsilon)
 
